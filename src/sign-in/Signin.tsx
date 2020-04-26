@@ -2,6 +2,8 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
+import {signInWithGoogle} from "../firebase"
+
 import "./Signin.scss";
 
 const Signin = () => (
@@ -13,7 +15,7 @@ const Signin = () => (
       <Button type="submit" fullWidth variant="contained" color="primary">
         Sign In
       </Button>
-      <Button type="button" fullWidth variant="contained" color="secondary">
+      <Button type="button" fullWidth variant="contained" onClick = {signInWithGoogle} color="secondary">
         Sign In with google
       </Button>
     </form>
