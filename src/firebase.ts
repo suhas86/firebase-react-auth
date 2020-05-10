@@ -29,7 +29,7 @@ provider.setCustomParameters({
 });
 
 // Check if user exists if not create a user
-export const createUserProfileDocument =async (userAuth:any) => {
+export const createUserProfileDocument =async (userAuth:any, additionalData?:any) => {
   if(!userAuth) return;
 
  const userReference =  firestore.doc(`users/${userAuth.uid}`);
@@ -41,7 +41,8 @@ export const createUserProfileDocument =async (userAuth:any) => {
      await userReference.set({
        displayName,
        email,
-       createdAt
+       createdAt,
+       ...additionalData
      })
    } catch (error) {
       console.log(error)
